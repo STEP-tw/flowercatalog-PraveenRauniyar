@@ -25,17 +25,13 @@ const writeAllFeedBack = function() {
   return allNamesAndComments.join("");
 };
 
-const writeComments = function(req, res) {
-  console.log("nice wow");
-  req.on('data', function(data) {
-    let feedback = (querystring.parse(data.toString()));
+const writeComments = function(feedback) {
     let date = new Date();
     feedback.Date = date.toLocaleString();
     let allFeedBack = getAllFeedBack();
     allFeedBack.unshift(feedback);
     let feedbacks = JSON.stringify(allFeedBack, null, 2);
     fs.writeFile("./data/allFeedback.json", feedbacks, "utf8", (err) => {});
-  });
 }
 
 const displayAllComments = function(req, res) {

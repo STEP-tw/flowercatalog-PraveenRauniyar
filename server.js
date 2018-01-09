@@ -94,7 +94,7 @@ app.post('/guestBook.html', (req, res) => {
     res.redirect('/login');
     return;
   }
-  writeComments(req,res);
+  writeComments(req.body);
   res.redirect('/guestBook.html');
 });
 

@@ -80,7 +80,7 @@ const main = function(req, res) {
       if (res.finished) return;
       middleware(req, res);
     });
-    if (req.url == "/guestBook.html" || req.url == "/login") {
+    if (req.url == "/guestBook.html" || req.url == "/login" || req.url ==  "/logout") {
       invoke.call(this, req, res);
       return;
     };
