@@ -63,24 +63,14 @@ const urlIsOneOf = function(urls) {
   return urls.includes(this.url);
 };
 
-const dealsWithUrls = function(req, res) {
-  this._preprocess.forEach(middleware => {
-    if (res.finished) return;
-    middleware(req, res);
-  });
-  if (req.url == "/guestBook.html") {
-    invoke.call(this, req, res);
-    return;
-  };
-  this._postprocess.forEach(middleware => {
-    middleware(req, res);
-  })
-};
-
-const main = function(req, res) {
+const parseCookiesAndBindRes = function (req,res) {
   res.redirect = redirect.bind(res);
   req.urlIsOneOf = urlIsOneOf.bind(req);
   req.cookies = parseCookies(req.headers.cookie || '');
+};
+
+const main = function(req, res) {
+  parseCookiesAndBindRes(req,res);
   let content = "";
   req.on('data', data => content += data.toString())
   req.on('end', () => {

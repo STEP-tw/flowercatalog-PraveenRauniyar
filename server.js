@@ -4,15 +4,14 @@ const http = require('http');
 const WebApp = require('./webapp');
 const displayAllComments = require("./feedback.js").displayAllComments;
 const writeComments = require("./feedback.js").writeComments;
-const writeAllFeedBack = require("./feedback.js").writeAllFeedBack;
 
 
 let registered_users = [{
-  userName: 'bhanutv',
-  name: 'Bhanu Teja Verma'
+  userName: 'Praveen',
+  name: 'Praveen Kumar Gupta '
 }, {
-  userName: 'harshab',
-  name: 'Harsha Vardhana'
+  userName: 'Manish',
+  name: 'Manish Yadav'
 }];
 
 let toString = o => JSON.stringify(o, null, 2);
@@ -73,12 +72,6 @@ app.get('/login', (req, res) => {
   return;
 });
 
-const createCookies = function(user,res){
-  let sessionid = new Date().getTime();
-  res.setHeader('Set-Cookie', `sessionid=${sessionid}`);
-  user.sessionid = sessionid;
-};
-
 app.post('/login', (req, res) => {
   let user = registered_users.find(u => u.userName == req.body.userName);
   if (!user) {
@@ -96,19 +89,13 @@ app.get('/guestBook.html', (req, res) => {
 });
 
 app.post('/guestBook.html', (req, res) => {
-  console.log(req.body);
   let user = registered_users.find(u => u.userName == req.body.Name);
   if (!user) {
     res.redirect('/login');
     return;
   }
   writeComments(req,res);
-  fs.readFile("./public/guestBook.html", "utf8", (err, data) => {
-    res.write(data.replace("CommentStore", writeAllFeedBack()));
-    res.end()
-    return;
-  });
-  // res.redirect('/guestBook.html');
+  res.redirect('/guestBook.html');
 });
 
 app.get('/logout', (req, res) => {
