@@ -1,0 +1,69 @@
+body {
+  font-family: sans-serif;
+}
+
+.wholePage {
+  height: 600px;
+  width: 1200;
+}
+
+.Form-Part {
+  font-size: 40px;
+  height: 400px;
+  text-align: left;
+  padding-top: 80px;
+  border-bottom: 2px solid black
+}
+
+.Header-Part {
+  height: 150px;
+  width: 1600px;
+  border-bottom: 2px solid black;
+  padding-right: 30px;
+  text-align: center;
+}
+
+.Header {
+  padding-left: 180px;
+  font-size: 100px;
+  color: #ff9933;
+  font-size: 80px;
+}
+
+.nameBox {
+  height: 30px;
+  width: 200px;
+  resize: none;
+  font-size: 20px;
+  text-align: left;
+}
+
+.commentBox {
+  height: 100px;
+  width: 200px;
+  resize: none;
+  text-align: left;
+  font-size: 25px;
+}
+
+.sequance-of-comments {
+  height: 50px;
+  width: 1600px;
+  font-size: 30px;
+  font-weight: lighter;
+  text-align: left;
+  word-spacing: 300px;
+}
+
+.comment {
+  height: 400px;
+  width: 1600px;
+  font-weight:bold;
+}
+
+.comment-Store {
+  font-size: 20px;
+  font-weight: lighter;
+  text-align: left;
+  word-spacing: 10px
+}

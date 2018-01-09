@@ -1,0 +1,47 @@
+body{
+  font-family: sans-serif;
+}
+.Whole-Page {
+  height : 900px;
+  width: 1200;
+  text-align: center;
+}
+
+.Header-Part {
+  height : 150px;
+  width: 1600px;
+  border-bottom: 2px solid black;
+  padding-right: 30px;
+  text-align: center;
+}
+
+.Image-Part{
+  padding-top: 30px;
+  height: 500px;
+  width:1600px;
+}
+
+.Image{
+  width: 600px;
+  height: 600px;
+  float: left;
+}
+
+.Header{
+  padding-left: 180px;
+  font-size: 100px;
+  text-align: center;
+  color: #ff9933;
+  font-size: 60px
+}
+
+.Details{
+  padding-top: 200px;
+  height: 250px;
+  width: 800px;
+  color: black;
+  float: left;
+  text-align: left;
+  padding-left: 5%;
+  font-size: 20px;
+}
