@@ -69,6 +69,13 @@ const parseCookiesAndBindRes = function (req,res) {
   req.cookies = parseCookies(req.headers.cookie || '');
 };
 
+const postprocess = function (req,res) {
+  this._postprocess.forEach(middleware => {
+    middleware(req, res);
+    return;
+  })
+};
+
 const main = function(req, res) {
   parseCookiesAndBindRes(req,res);
   let content = "";
@@ -80,14 +87,11 @@ const main = function(req, res) {
       if (res.finished) return;
       middleware(req, res);
     });
-    if (req.url == "/guestBook.html" || req.url == "/login" || req.url ==  "/logout") {
+    if (req.url == "/guestBook.html" || req.url == "/login" || req.url == "/logout") {
       invoke.call(this, req, res);
       return;
     };
-    this._postprocess.forEach(middleware => {
-      middleware(req, res);
-      return;
-    })
+    postprocess.call(this,req,res);
   });
 };
 
