@@ -83,7 +83,7 @@ const main = function(req, res) {
     if (req.url == "/guestBook.html" || req.url == "/login") {
       invoke.call(this, req, res);
       return;
-    }
+    };
     this._postprocess.forEach(middleware => {
       middleware(req, res);
       return;
@@ -94,7 +94,6 @@ const main = function(req, res) {
 let create = () => {
   let rh = (req, res) => {
     main.call(rh, req, res)
-    console.log(req.url, req.method);
   };
   initialize.call(rh);
   rh.get = get;

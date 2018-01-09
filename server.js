@@ -109,15 +109,15 @@ app.postuse((req, res) => {
   if(req.url == "/"){
     filePath = "/index.html";
   }
-  res.setHeader('Content-type', setContentType(filePath));
   fs.readFile(`./public${filePath}`, (err, data) => {
     if (err) return responseError(res);
+    res.setHeader('Content-type', setContentType(filePath));
     res.write(data);
     res.end();
   });
 });
 
-const responseError = function(req, res) {
+const responseError = function(res) {
   res.statusCode = 404;
   res.write('file not found');
   res.end();
